@@ -1,0 +1,6 @@
+20180917
+ 
+ git clone https://github.com/oscmonlop98/ed.git
+ git config --global user.name oscmonlop98
+ git config --global user.email oscarmorenolopinfo2@gmail.com
+ git
