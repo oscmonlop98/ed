@@ -1,6 +1,10 @@
 20180917
+ VirtualBox (pendiente de anotar)
  
+ git:
+ crear usuario y repositorio en github (pendiente de anotar)
+
  git clone https://github.com/oscmonlop98/ed.git
  git config --global user.name oscmonlop98
  git config --global user.email oscarmorenolopinfo2@gmail.com
- git
+ git config --global push.default simple
