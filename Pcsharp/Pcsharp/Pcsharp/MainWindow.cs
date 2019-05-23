@@ -3,6 +3,7 @@ using Gtk;
 
 public partial class MainWindow : Gtk.Window
 {
+    private bool isNew = false;
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
@@ -19,6 +20,7 @@ public partial class MainWindow : Gtk.Window
 		newAction.Activated += (sender, e) => {
 			vBoxContacto.Visible = true;
 			treeView.Sensitive = false;
+            isNew = true;
 		};
 
         editAction.Activated += (sender, e) => {
@@ -30,6 +32,33 @@ public partial class MainWindow : Gtk.Window
             Console.WriteLine("Nombre={0} Teléfono={1}", nombre, telefono);
             entryNombre.Text = nombre;
             entryTelefono.Text = telefono;
+            isNew = false;
+        };
+        acceptButton.Clicked += (sender, e) => {
+            if (isNew) {
+                listStore.AppendValues(entryNombre.Text, entryTelefono.Text);
+            } else {
+                treeView.Selection.GetSelected(out TreeIter treeIter);
+                listStore.SetValue(treeIter, 0, entryNombre.Text);
+                listStore.SetValue(treeIter, 1, entryTelefono.Text);
+            }
+            vBoxContacto.Visible = false;
+            treeView.Sensitive = true;
+        };
+        cancelButton.Clicked += (sender, e) =>
+        {
+            vBoxContacto.Visible = false;
+            treeView.Sensitive = true;
+        };
+
+
+
+        deleteButton.Activated += (sender, e) => {
+            treeView.Selection.GetSelected(out TreeIter treeIter);
+            treeView.Model.SetValue(treeIter, 0, "");
+            treeView.Model.SetValue(treeIter, 1, "");
+
+
         };
 
         treeView.Selection.Changed += (sender, e) => 

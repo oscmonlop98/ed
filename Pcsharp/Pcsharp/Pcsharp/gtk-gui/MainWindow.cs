@@ -9,6 +9,8 @@ public partial class MainWindow
 
 	private global::Gtk.Action editAction;
 
+	private global::Gtk.Action deleteButton;
+
 	private global::Gtk.VBox vbox1;
 
 	private global::Gtk.Toolbar toolbar1;
@@ -33,9 +35,9 @@ public partial class MainWindow
 
 	private global::Gtk.HButtonBox hbuttonbox1;
 
-	private global::Gtk.Button button1;
+	private global::Gtk.Button cancelButton;
 
-	private global::Gtk.Button button2;
+	private global::Gtk.Button acceptButton;
 
 	protected virtual void Build()
 	{
@@ -47,6 +49,8 @@ public partial class MainWindow
 		w1.Add(this.newAction, null);
 		this.editAction = new global::Gtk.Action("editAction", null, null, "gtk-edit");
 		w1.Add(this.editAction, null);
+		this.deleteButton = new global::Gtk.Action("deleteButton", null, null, "gtk-cancel");
+		w1.Add(this.deleteButton, null);
 		this.UIManager.InsertActionGroup(w1, 0);
 		this.AddAccelGroup(this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -58,7 +62,8 @@ public partial class MainWindow
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.UIManager.AddUiFromString("<ui><toolbar name=\'toolbar1\'><toolitem name=\'newAction\' action=\'newAction\'/><tool" +
-				"item name=\'editAction\' action=\'editAction\'/></toolbar></ui>");
+				"item name=\'editAction\' action=\'editAction\'/><toolitem name=\'deleteButton\' action" +
+				"=\'deleteButton\'/></toolbar></ui>");
 		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget("/toolbar1")));
 		this.toolbar1.Name = "toolbar1";
 		this.toolbar1.ShowArrow = false;
@@ -152,25 +157,25 @@ public partial class MainWindow
 		this.hbuttonbox1.Name = "hbuttonbox1";
 		this.hbuttonbox1.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 		// Container child hbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
-		this.button1 = new global::Gtk.Button();
-		this.button1.CanFocus = true;
-		this.button1.Name = "button1";
-		this.button1.UseStock = true;
-		this.button1.UseUnderline = true;
-		this.button1.Label = "gtk-cancel";
-		this.hbuttonbox1.Add(this.button1);
-		global::Gtk.ButtonBox.ButtonBoxChild w11 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.button1]));
+		this.cancelButton = new global::Gtk.Button();
+		this.cancelButton.CanFocus = true;
+		this.cancelButton.Name = "cancelButton";
+		this.cancelButton.UseStock = true;
+		this.cancelButton.UseUnderline = true;
+		this.cancelButton.Label = "gtk-cancel";
+		this.hbuttonbox1.Add(this.cancelButton);
+		global::Gtk.ButtonBox.ButtonBoxChild w11 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.cancelButton]));
 		w11.Expand = false;
 		w11.Fill = false;
 		// Container child hbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
-		this.button2 = new global::Gtk.Button();
-		this.button2.CanFocus = true;
-		this.button2.Name = "button2";
-		this.button2.UseStock = true;
-		this.button2.UseUnderline = true;
-		this.button2.Label = "gtk-ok";
-		this.hbuttonbox1.Add(this.button2);
-		global::Gtk.ButtonBox.ButtonBoxChild w12 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.button2]));
+		this.acceptButton = new global::Gtk.Button();
+		this.acceptButton.CanFocus = true;
+		this.acceptButton.Name = "acceptButton";
+		this.acceptButton.UseStock = true;
+		this.acceptButton.UseUnderline = true;
+		this.acceptButton.Label = "gtk-ok";
+		this.hbuttonbox1.Add(this.acceptButton);
+		global::Gtk.ButtonBox.ButtonBoxChild w12 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.acceptButton]));
 		w12.Position = 1;
 		w12.Expand = false;
 		w12.Fill = false;
